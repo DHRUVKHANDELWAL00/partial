@@ -41,6 +41,7 @@ $(document).ready(function() {
 
 			var totalScore = "";
       var totScore="";
+			var finalScore="";
 
 
 			if (carbonRate === 0 || carbonRate === "undefined") {
@@ -136,6 +137,25 @@ $(document).ready(function() {
 
 			document.getElementById("roi").innerHTML = formatScore;
 
+
+
+
+
+			let aa=parseFloat(carbonScore*0.45);
+			let bb=parseFloat(energyScore*0.10);
+			let cc=parseFloat(wasteScore*0.30);
+			let dd=parseFloat(evtaaScore*0.15);
+			console.log(aa+bb+cc+dd);
+			let t=aa+bb+cc+dd;
+			// calculate scores for each category
+			// var wastedScore =;
+			// console.log("wasted score is:"+wastedScore)
+			// calculate total score and round to nearest whole integer
+			finalScore = Math.round(t);
+			var formScore = finalScore.toLocaleString("en");
+			formScore=formScore+"%"
+
+			document.getElementById("benef").innerHTML = formScore;
 			// display results
 			$("#results").show();
 
